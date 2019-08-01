@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Upload, message, Button, Icon } from 'antd';
 import ImageCard from './components/ImageCard';
+import getUrl from './utils/getUrl';
 import './App.css';
+
+
 const props = {
   name: 'file',
-  action: 'http://localhost:5000/upload',
+  action: getUrl(),
   accept: "image/*;capture=camera"
 };
 
