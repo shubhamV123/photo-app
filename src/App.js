@@ -16,17 +16,21 @@ const App = () => {
     width: "",
     url: "",
     height: "",
-  })
+  });
+  const [disabled, setDisabled] = useState(false)
   //Onfile Change
   const onChange = (info) => {
+    setDisabled(true);
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
       console.log(info.file)
+      setDisabled(false);
       message.success(`${info.file.name} file uploaded successfully`);
       setImageStatus(info.file.response)
     } else if (info.file.status === 'error') {
+      setDisabled(false);
       message.error(`${info.file.name} file upload failed.`);
     }
   }
@@ -43,7 +47,7 @@ const App = () => {
     <div className="App">
 
 
-      {!url && <Upload {...props} onChange={onChange} className="flex-center">
+      {!url && <Upload {...props} disabled={disabled} onChange={onChange} className="flex-center">
         <Button shape="circle" icon="upload" className="upload-btn">
           Take a photo
         </Button>
