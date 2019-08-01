@@ -6,7 +6,7 @@ const getUrl = () => {
     }
 
     if (process.env.NODE_ENV === 'production') {
-        url = 'https://calm-gorge-78324.herokuapp.com/'
+        url = 'https://calm-gorge-78324.herokuapp.com/upload'
     }
 
     return url;
