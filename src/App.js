@@ -11,13 +11,13 @@ const props = {
   accept: "image/*;capture=camera"
 };
 
-function App() {
+const App = () => {
   const [image, setImageStatus] = useState({
     width: "",
     url: "",
     height: "",
   })
-
+  //Onfile Change
   const onChange = (info) => {
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList);
@@ -30,6 +30,7 @@ function App() {
       message.error(`${info.file.name} file upload failed.`);
     }
   }
+  //On retrying 
   const handleClick = () => {
     setImageStatus({
       width: "",
